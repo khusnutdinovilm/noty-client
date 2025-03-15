@@ -1,10 +1,7 @@
 <template>
-  <router-view />
+  <main>
+    <h1>This is an home page</h1>
+  </main>
 </template>
 
 <script setup lang="ts"></script>
-
-<style lang="scss">
-* {
-}
-</style>
