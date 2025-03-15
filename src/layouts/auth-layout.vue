@@ -1,8 +1,6 @@
 <template>
   <div class="auth-layout">
-    <main>
-      <router-view />
-    </main>
+    <router-view />
   </div>
 </template>
 
@@ -18,11 +16,5 @@ defineOptions({
 
   min-height: 100dvh;
   background-color: $color-black;
-
-  & main {
-    padding: 24px;
-    border-radius: 12px;
-    background-color: $color-gray-dark;
-  }
 }
 </style>
