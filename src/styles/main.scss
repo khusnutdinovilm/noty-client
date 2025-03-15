@@ -1,2 +1,6 @@
 @import "./reset";
 @import "./fonts";
+
+* {
+  font-family: $primary-font-family, sans-serif;
+}
