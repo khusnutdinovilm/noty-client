@@ -1,12 +1,27 @@
 import type { RouteRecordRaw } from "vue-router";
 
-import HomePage from "pages/home-page.vue";
-
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    name: "home",
-    component: HomePage,
+    component: () => import("layouts/main-layout.vue"),
+    children: [
+      {
+        path: "",
+        name: "home-page",
+        component: () => import("pages/home-page.vue"),
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    component: () => import("layouts/auth-layout.vue"),
+    children: [
+      {
+        path: "login",
+        name: "login-page",
+        component: () => import("pages/login-page.vue"),
+      },
+    ],
   },
 ];
 
