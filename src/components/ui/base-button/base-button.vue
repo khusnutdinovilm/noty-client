@@ -1,5 +1,5 @@
 <template>
-  <button class="base-button" :class="btnClasses">
+  <button :type="type" class="base-button" :class="btnClasses">
     <template v-if="!loading">
       <div v-if="$slots.prepend" class="base-button__prepend">
         <slot name="prepend" />
@@ -31,7 +31,7 @@ defineOptions({
   name: "base-button",
 });
 
-const { btnType = "primary" } = defineProps<IBaseButtonProps>();
+const { btnType = "primary", type = "button" } = defineProps<IBaseButtonProps>();
 
 const btnClasses = computed(() => ({
   "base-button--primary": btnType === "primary",
