@@ -26,6 +26,8 @@ defineOptions({
 
   & main {
     flex: 1;
+    padding-top: 60px;
+    padding-bottom: 68px;
   }
 }
 </style>
