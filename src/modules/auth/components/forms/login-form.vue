@@ -2,8 +2,8 @@
   <form class="login-form" @submit.prevent="onLogin">
     <div class="login-form__content">
       <base-input
-        id="login"
-        v-model="form.login"
+        id="username"
+        v-model="loginForm.username"
         label-text="Логин"
         placeholder="Введите Ваш логин"
         class="login-form__field"
@@ -11,7 +11,7 @@
 
       <base-input
         id="password"
-        v-model="form.password"
+        v-model="loginForm.password"
         label-text="Password"
         type="password"
         placeholder="Введите Ваш пароль"
@@ -36,6 +36,9 @@ import { reactive, ref } from "vue";
 import BaseButton from "ui/base-button";
 import BaseInput from "ui/base-input";
 
+import useAuthStore from "modules/auth/store/use-auth-store";
+import type { ILoginCredentials } from "modules/auth/types/credentials";
+
 defineOptions({
   name: "login-form",
 });
@@ -44,8 +47,10 @@ const emits = defineEmits<{
   (e: "success-login", accessToken: string): void;
 }>();
 
-const form = reactive({
-  login: "",
+const authStore = useAuthStore();
+
+const loginForm = reactive<ILoginCredentials>({
+  username: "",
   password: "",
 });
 const isFormLoading = ref(false);
@@ -56,7 +61,8 @@ const onLogin = async () => {
   isFormLoading.value = true;
 
   try {
-    emits("success-login", "access-token");
+    const { accessToken } = await authStore.login(loginForm);
+    emits("success-login", accessToken);
   } catch (error) {
     // TODO: сделать нормальную обработку ошибок
     console.log(error);
