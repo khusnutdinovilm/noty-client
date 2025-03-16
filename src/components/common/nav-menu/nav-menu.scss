@@ -1,0 +1,10 @@
+.nav-menu {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 32px;
+
+  &__link {
+    @include text-md-semibold($color-off-white);
+    padding: 4px 0;
+  }
+}
