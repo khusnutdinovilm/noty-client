@@ -24,6 +24,7 @@ export default defineConfig({
       layouts: fileURLToPath(new URL("./src/layouts", import.meta.url)),
       ui: fileURLToPath(new URL("./src/components/ui", import.meta.url)),
       shared: fileURLToPath(new URL("./src/components/shared", import.meta.url)),
+      common: fileURLToPath(new URL("./src/components/common", import.meta.url)),
       modules: fileURLToPath(new URL("./src/modules", import.meta.url)),
       api: fileURLToPath(new URL("./src/api", import.meta.url)),
       router: fileURLToPath(new URL("./src/router", import.meta.url)),
