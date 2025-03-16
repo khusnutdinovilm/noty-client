@@ -1,6 +1,6 @@
 <template>
   <div class="main-layout">
-    <header></header>
+    <app-header />
 
     <router-view />
 
@@ -9,6 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import AppHeader from "common/app-header";
+
 defineOptions({
   name: "main-layout",
 });
