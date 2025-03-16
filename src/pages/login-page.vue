@@ -38,7 +38,7 @@ const onSuccessLogin = (accessToken: string) => {
 <style lang="scss">
 .login-page {
   & .auth-page-template__body {
-    width: 100%;
+    width: 360px;
   }
 }
 </style>
