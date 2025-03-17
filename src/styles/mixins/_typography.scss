@@ -1,0 +1,81 @@
+// TEXT
+@mixin text-lg-semibold($font-color: #ffffff) {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  color: $font-color;
+}
+
+@mixin text-sm-regular($font-color: #ffffff) {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: $font-color;
+}
+
+@mixin text-sm-medium($font-color: #ffffff) {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: $font-color;
+}
+
+@mixin text-md-regular($font-color: #ffffff) {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: $font-color;
+}
+
+@mixin text-md-semibold($font-color: #ffffff) {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: $font-color;
+}
+
+@mixin text-md-medium($font-color: #ffffff) {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: $font-color;
+}
+
+@mixin text-lg-medium($font-color: #ffffff) {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  color: $font-color;
+}
+
+@mixin text-xs-medium($font-color: #ffffff) {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0%;
+  color: $font-color;
+}
+
+// DISPLAY
+@mixin display-lg-semibold($font-color: #ffffff) {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -2%;
+  color: $font-color;
+}
+
+@mixin display-xs-semibold($font-color: #ffffff) {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  color: $font-color;
+}

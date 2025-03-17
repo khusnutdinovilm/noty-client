@@ -1,0 +1,11 @@
+$primary-font-family: "Inter";
+
+@include font-face($primary-font-family, 100);
+@include font-face($primary-font-family, 200);
+@include font-face($primary-font-family, 300);
+@include font-face($primary-font-family, 400);
+@include font-face($primary-font-family, 500);
+@include font-face($primary-font-family, 600);
+@include font-face($primary-font-family, 700);
+@include font-face($primary-font-family, 800);
+@include font-face($primary-font-family, 900);

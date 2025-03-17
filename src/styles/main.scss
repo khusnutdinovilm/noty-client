@@ -1,0 +1,19 @@
+@import "./reset";
+@import "./fonts";
+
+* {
+  font-family: $primary-font-family, sans-serif;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @each $breakpoint, $width in $container-widths {
+    @include start-at($breakpoint) {
+      max-width: $width;
+    }
+  }
+}
