@@ -22,6 +22,7 @@ import LockIcon from "icons/lock-icon.vue";
 import AuthPageTemplate from "shared/auth-page-template";
 
 import LoginForm from "modules/auth/components/forms/login-form.vue";
+import useAuthUserStore from "modules/auth/store/use-auth-user-store";
 
 defineOptions({
   name: "login-page",
@@ -29,8 +30,10 @@ defineOptions({
 
 const router = useRouter();
 
+const authUserStore = useAuthUserStore();
+
 const onSuccessLogin = (accessToken: string) => {
-  localStorage.setItem("access-token", accessToken);
+  authUserStore.saveAccessToken(accessToken);
   router.replace({ name: "home-page" });
 };
 </script>
