@@ -20,7 +20,6 @@ const appSkeletonRef = ref<HTMLDivElement | null>(null);
 onMounted(() => {
   if (appSkeletonRef.value) {
     if (props.width) {
-      console.log("kek");
       appSkeletonRef.value.style.setProperty("--skeleton-width", props.width);
     }
 
