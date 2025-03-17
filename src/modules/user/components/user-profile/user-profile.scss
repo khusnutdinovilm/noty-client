@@ -27,6 +27,10 @@
     flex-direction: column;
   }
 
+  &--skeleton &__user-info {
+    gap: 4px;
+  }
+
   &__fullname {
     @include text-md-semibold($color-off-white);
   }
