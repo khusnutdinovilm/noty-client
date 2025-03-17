@@ -1,4 +1,4 @@
-type BtnType = "primary" | "secondary" | "danger";
+type BtnType = "primary" | "secondary" | "danger" | "terciary-primary" | "terciary-danger";
 
 export interface IBaseButtonProps {
   labelText?: string;

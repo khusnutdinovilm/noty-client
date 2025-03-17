@@ -37,5 +37,7 @@ const btnClasses = computed(() => ({
   "base-button--primary": btnType === "primary",
   "base-button--secondary": btnType === "secondary",
   "base-button--danger": btnType === "danger",
+  "base-button--terciary-primary": btnType === "terciary-primary",
+  "base-button--terciary-danger": btnType === "terciary-danger",
 }));
 </script>
