@@ -1,15 +1,12 @@
 import type { ApiResult } from "api/types";
 
-interface ILoginResponse {
-  id: number;
-  username: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  gender: "female" | "male";
-  image: string;
+import type { IUser } from "modules/user/types/user";
+
+interface ILoginResponse extends IUser {
   accessToken: string;
   refreshToken: string;
 }
 
 export type LoginResult = ApiResult<ILoginResponse>;
+
+export type AuthMeResult = ApiResult<IUser>;

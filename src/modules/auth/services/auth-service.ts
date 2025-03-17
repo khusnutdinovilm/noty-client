@@ -4,7 +4,7 @@ import api from "api/api";
 import BaseHttpService from "api/http-service";
 
 import type { ILoginCredentials } from "modules/auth/types/credentials";
-import type { LoginResult } from "modules/auth/types/service";
+import type { AuthMeResult, LoginResult } from "modules/auth/types/service";
 
 class AuthService extends BaseHttpService {
   constructor(api: AxiosInstance) {
@@ -13,6 +13,10 @@ class AuthService extends BaseHttpService {
 
   async login(loginCredentials: ILoginCredentials): LoginResult {
     return this.api.post("/auth/login", loginCredentials);
+  }
+
+  async getCurrentAuthUser(): AuthMeResult {
+    return this.api.get("/auth/me");
   }
 }
 

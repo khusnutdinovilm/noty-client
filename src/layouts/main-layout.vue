@@ -9,10 +9,24 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from "vue";
+
 import AppHeader from "common/app-header";
+
+import useAuthUserStore from "modules/auth/store/use-auth-user-store";
 
 defineOptions({
   name: "main-layout",
+});
+
+const authUserStore = useAuthUserStore();
+
+onMounted(async () => {
+  try {
+    await authUserStore.fetchCurrentAuthUser();
+  } catch (error) {
+    console.log(error);
+  }
 });
 </script>
 
