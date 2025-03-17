@@ -14,8 +14,12 @@ const useAuthUserStore = defineStore("auth-user-store", () => {
     authUser.value = resData;
   };
 
-  const saveAccessToken = (accessToken: string) => {
+  const saveAccessToken = (accessToken: string): void => {
     localStorage.setItem("access-token", accessToken);
+  };
+
+  const removeAccessToken = (): void => {
+    localStorage.removeItem("access-token");
   };
 
   return {
@@ -23,6 +27,7 @@ const useAuthUserStore = defineStore("auth-user-store", () => {
     isRoleAdmin,
     fetchCurrentAuthUser,
     saveAccessToken,
+    removeAccessToken,
   };
 });
 

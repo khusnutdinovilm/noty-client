@@ -6,10 +6,16 @@
           <img src="assets/images/main-logo.png" alt="" class="app-header__logo-image" />
         </router-link>
 
-        <nav-menu v-if="isRoleAdmin" class="app-header__nav" />
+        <nav-menu v-if="authUserStore.isRoleAdmin" class="app-header__nav" />
 
         <div class="app-header__right">
-          <user-profile :user-info="userInfo" with-email class="app-header__user-profile" />
+          <user-profile-skeleton v-if="!authUserStore.authUser" />
+          <user-profile
+            v-else
+            :user-info="authUserStore.authUser"
+            with-email
+            class="app-header__user-profile"
+          />
 
           <div class="app-header__logout" @click.prevent="onLogout">
             <logout-icon />
@@ -21,31 +27,25 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
 import LogoutIcon from "icons/logout-icon.vue";
 
 import NavMenu from "common/nav-menu";
 
-import UserProfile from "modules/user/components/user-profile";
-import type { IUser } from "modules/user/types/user";
+import useAuthUserStore from "modules/auth/store/use-auth-user-store";
+import { UserProfile, UserProfileSkeleton } from "modules/user/components/user-profile";
 
 defineOptions({
   name: "app-header",
 });
 
-const userInfo = reactive<IUser>({
-  id: 1,
-  firstName: "Emily",
-  lastName: "Johnson",
-  image: "https://dummyjson.com/icon/emilys/128",
-  email: "emily.johnson@x.dummyjson.com",
-  role: "admin",
-});
+const router = useRouter();
 
-const isRoleAdmin = ref(userInfo.role === "admin");
+const authUserStore = useAuthUserStore();
 
 const onLogout = () => {
-  console.log("logout");
+  authUserStore.removeAccessToken();
+  router.replace({ name: "login-page" });
 };
 </script>
