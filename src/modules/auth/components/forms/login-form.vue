@@ -3,9 +3,9 @@
     <div class="login-form__content">
       <base-input
         id="username"
-        v-model="loginForm.username"
+        v-model="loginForm.email"
         label-text="Логин"
-        placeholder="Введите Ваш логин"
+        placeholder="Введите Ваш email"
         class="login-form__field"
       />
 
@@ -26,12 +26,15 @@
         :loading="isFormLoading"
         class="login-form__submit-btn"
       />
+
+      <base-button label-text="Регистрация" btn-type="secondary" @click="goToRegisterPage" />
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
 import BaseButton from "ui/base-button";
 import BaseInput from "ui/base-input";
@@ -47,10 +50,12 @@ const emits = defineEmits<{
   (e: "success-login", accessToken: string): void;
 }>();
 
+const router = useRouter();
+
 const authStore = useAuthStore();
 
 const loginForm = reactive<ILoginCredentials>({
-  username: "",
+  email: "",
   password: "",
 });
 const isFormLoading = ref(false);
@@ -70,6 +75,10 @@ const onLogin = async () => {
     isFormLoading.value = false;
   }
 };
+
+const goToRegisterPage = () => {
+  router.push({ name: "register-page" });
+};
 </script>
 
 <style lang="scss">
@@ -78,20 +87,11 @@ const onLogin = async () => {
   flex-direction: column;
   gap: 32px;
 
-  &__content {
+  &__content,
+  &__footer {
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
-
-  &__field {
-  }
-
-  &__footer {
-  }
-
-  &__submit-btn {
-    width: 100%;
   }
 }
 </style>

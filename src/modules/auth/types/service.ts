@@ -9,4 +9,11 @@ interface ILoginResponse extends IUser {
 
 export type LoginResult = ApiResult<ILoginResponse>;
 
+export interface IRegisterResponse {
+  success: boolean;
+  message: string;
+}
+
+export type RegisterResult = ApiResult<IRegisterResponse>;
+
 export type AuthMeResult = ApiResult<IUser>;
