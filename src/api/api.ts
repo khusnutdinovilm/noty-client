@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const apiHost = import.meta.env.VITE_API_HOST;
+
 const api = axios.create({
-  baseURL: "https://dummyjson.com/",
+  baseURL: `${apiHost}/api`,
 });
 
 api.interceptors.request.use(
