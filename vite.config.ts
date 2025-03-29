@@ -12,7 +12,7 @@ export default defineConfig({
     port: 5173,
   },
 
-  base: process.env.NODE_ENV === "production" ? "/noty-client/" : "/",
+  // base: process.env.NODE_ENV === "production" ? "/noty-client/" : "/",
 
   plugins: [vue(), vueDevTools()],
 
